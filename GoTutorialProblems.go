@@ -1,10 +1,11 @@
-// This is my first go problem
-
 package main
 
 import (
 	"fmt"
+	"math"
 )
+
+// Implement own Sqrt funciton
 
 func Sqrt(num float64) float64 {
 	z := 1.0
@@ -18,7 +19,7 @@ func Sqrt(num float64) float64 {
 func SqrtSmartStop(num float64) float64 {
 	curr := 1.0
 	old := 0.0
-	for old - curr != 0 {
+	for math.Abs(old - curr) > 0.1 {
 		old = curr
 		curr -= (curr * curr - num) / (2 * curr)
 		fmt.Println(curr)
