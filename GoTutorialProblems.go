@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"golang.org/x/tour/pic"
 )
 
 // Implement own Sqrt funciton
@@ -29,4 +30,21 @@ func SqrtSmartStop(num float64) float64 {
 
 func main() {
 	fmt.Println(SqrtSmartStop(1424))
+}
+
+// Slices exercise
+func Pic(dx, dy int) [][]uint8 {
+	picValues := make([][]uint8, dy)
+	for i := range picValues {
+		picValues[i] = make([]uint8, dx)
+		for j := range picValues[i] {
+			picValues[i][j] = uint8((i+j)/2)
+		}
+	}
+	return picValues
+}
+
+
+func main() {
+	pic.Show(Pic)
 }
