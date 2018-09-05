@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"math"
 	"golang.org/x/tour/pic"
+	"golang.org/x/tour/wc"
+	"strings"
 )
 
 // Implement own Sqrt funciton
@@ -47,4 +49,23 @@ func Pic(dx, dy int) [][]uint8 {
 
 func main() {
 	pic.Show(Pic)
+}
+
+// Count number of times each word appears in the sentence
+
+func WordCount(s string) map[string]int {
+	dic := make(map[string]int)
+	words := strings.Fields(s);
+	for _, word := range words {
+		if _, ok := dic[word]; ok {
+			dic[word] += 1;
+		} else {
+			dic[word] = 1;
+		}
+	}
+	return dic
+}
+
+func main() {
+	wc.Test(WordCount)
 }
