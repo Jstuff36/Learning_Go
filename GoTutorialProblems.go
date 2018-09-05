@@ -69,3 +69,24 @@ func WordCount(s string) map[string]int {
 func main() {
 	wc.Test(WordCount)
 }
+
+// fibonacci is a function that returns
+// a function that returns an int.
+func fibonacci() func() int {
+	old := 1
+	older := 0
+	return func() int {
+		nextNum := old + older
+		older = old
+		old = nextNum
+		return nextNum
+		
+	}
+}
+
+func main() {
+	f := fibonacci()
+	for i := 0; i < 10; i++ {
+		fmt.Println(f())
+	}
+}
